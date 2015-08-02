@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Datzyk Feed </title>
+    <!-- include your server-side compiled templates -->
+    <!--<script src="/js/my-templates.js"></script>-->
+    <!-- render your templates -->
+    <!--<script src="http://twitter.github.com/hogan.js/builds/3.0.1/hogan-3.0.1.js"></script>-->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="hogan-3.0.1.js"></script>
+
+
+    
+    <script>
+    // var data = {
+    //     screenName: "dhg",
+    // };
+    
+$.getJSON( "datzyk.json", function( data ) {
+  // var items = [];
+//   for (i = 0; i < 10; i++){
+//   $.each( data[i], function( key, val ) {
+//     items.push( "<li id='" + key + "'>" + val + "</li>" );
+//   });
+ 
+//   $( "<ul/>", {
+//     "class": "my-new-list",
+//     html: items.join( "" )
+//   }).appendTo( "body" );
+  
+//   };
+
+    
+    //for (i = 0 ; i < data.length; i++){
+      var template = Hogan.compile('{{#list}}<p><strong>{{title}}</strong></p><br/> {{introtext}}. {{/list}}');
+      var output = template.render(data);
+      document.getElementById('output').innerHTML=output;
+   // }
+    
+
+});
+    </script>
+</head>
+
+<body>
+
+<div id="output"></div>
+</body>
+
+</html>
