@@ -3,16 +3,16 @@
 
 <head>
     <title>Datzyk Feed </title>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+
 </head>
 
 <body>
     <div id="output"></div>
-    
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="hogan-3.0.1.js"></script>
-    
     <script>
     $.getJSON("datzyk.json", function(data) {
         var template = Hogan.compile('{{#list}}<p><strong>{{title}}</strong></p><p><a href="http://181.224.136.211/~datzyk14/index.php?option=com_content&view=article&id={{id}}">{{title}}</a></p><br/> <div>{{{introtext}}}</div>. {{/list}}');
